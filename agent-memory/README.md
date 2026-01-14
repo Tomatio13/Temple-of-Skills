@@ -22,5 +22,7 @@ Codex の「agent-memory」スキル用リポジトリです。ユーザーか�
 3. 指示に従って作業を実施
 4. 追加ファイルは必要最小限だけ参照
 
-## ライセンス
-TBD
+## 謝辞
+Skillの提供に感謝いたします
+- [@yamadashy](https://zenn.dev/yamadashy)
+- [Claude Codeで記憶領域を持つための独自のAgent Skillsを使っている](https://zenn.dev/yamadashy/articles/claude-code-agent-skills-agent-memory)

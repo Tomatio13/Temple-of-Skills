@@ -46,3 +46,6 @@
 - Overview plan body template
 
 詳細は `SKILL.md` を参照してください。
+
+## 謝辞
+- OpenAI

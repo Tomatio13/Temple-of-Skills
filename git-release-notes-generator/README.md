@@ -69,3 +69,6 @@ git diff [前回のタグ] [現在のタグ]
 ## ⚠️ 注意
 - Issue番号が見つからない場合は「確認が必要」と明記します。
 - 破壊的変更や重要変更は強調します。
+
+## 謝辞
+- [Github](https://github.com/Sunwood-ai-labs/MysticLibrary/tree/main/prompts/coding)

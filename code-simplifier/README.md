@@ -40,3 +40,10 @@
 ## 🚀 使い方
 1. 対象リポジトリに `SKILL.md` を配置します。
 2. Codex に本スキルを読み込ませて使用します。
+
+
+## 謝辞
+SKillsの提供に感謝いたします
+
+- Anthorpics社
+- [Github](https://github.com/anthropics/claude-plugins-official/blob/main/plugins/code-simplifier/agents/code-simplifier.md)

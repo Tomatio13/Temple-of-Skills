@@ -58,3 +58,6 @@
 - 情報不足の場合は「確認が必要」と明示します。
 - 指摘は簡潔に、改善提案は具体的に記述します。
 - 英語版の作成は必ずユーザーに確認してから行います。
+
+## 謝辞
+- [Github](https://github.com/Sunwood-ai-labs/MysticLibrary/tree/main/prompts/coding)
