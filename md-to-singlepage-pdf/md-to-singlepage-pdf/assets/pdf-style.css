@@ -1,0 +1,52 @@
+@page {
+  size: 280mm 5000mm;
+  margin: 15mm;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+* {
+  page-break-inside: avoid !important;
+  page-break-before: avoid !important;
+  page-break-after: avoid !important;
+  break-inside: avoid !important;
+  break-before: avoid !important;
+  break-after: avoid !important;
+}
+
+h1 { font-size: 1.8em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.3em; }
+h4 { font-size: 1.1em; }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+table {
+  font-size: 0.9em;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #333;
+  padding: 8px 12px;
+}
+
+th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+code { font-size: 0.9em; }
