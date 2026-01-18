@@ -37,18 +37,10 @@ AIエージェントに設定後、以下のように指示を出して下さい
 ![screenshot](./assets/screen_jp.png)
 
 
-## 📦 事前準備 - treemdコマンドの ダウンロードとインストール
+## 📦 事前準備 - Python 3
 
-事前に`treemd`コマンドがインストールされている必要があります。
-
-```
-cargo install treemd
-```
-
-cargoがインストールされていな場合、`treemd`コマンドのGithubにコンパイル済みの
-MacOS/Windows/Linuxのバイナリが公開されています。
-
-ダウンロードしてインストールして下さい。
+Python 3 が必要です。`treemd` 互換の軽量スクリプトを同梱しています。
+スキルの `scripts/` ディレクトリから実行してください。
 
 ## 📦 本Skillのインストール方法
 
@@ -67,6 +59,8 @@ cp -pr  markdown-reader ~/.codex/skills
 
 ## 🗂️ ファイル構成
 - `markdown-reader/SKILL.md`
+- `markdown-reader/scripts/md-index.py`
+- `markdown-reader/references/md-index.md`
 
 ## 謝辞
-- [treemd](https://github.com/Epistates/treemd.git) 作者の @Epistates さんに感謝します。
+- 互換 CLI の参考として [treemd](https://github.com/Epistates/treemd.git) に感謝します。
