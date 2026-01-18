@@ -35,15 +35,9 @@ You can load it incrementally like this:
 
 ![screenshot](./assets/screen.png)
 
-## 📦 Prerequisite - Download and install treemd
-The `treemd` command must be installed in advance.
-
-```
-cargo install treemd
-```
-
-If Cargo is not installed, prebuilt binaries for macOS/Windows/Linux are available on the treemd GitHub.
-Download and install the appropriate one.
+## 📦 Prerequisite - Python 3
+Python 3 is required. This skill ships with a lightweight treemd-compatible script.
+Use the script from the skill's `scripts/` directory.
 
 ## 📦 Install this skill
 ```
@@ -60,6 +54,8 @@ Copy it into your agent's skill directory.
 
 ## 🗂️ Files
 - `markdown-reader/SKILL.md`
+- `markdown-reader/scripts/md-index.py`
+- `markdown-reader/references/md-index.md`
 
 ## Acknowledgements
-- Thanks to @Epistates, the author of [treemd](https://github.com/Epistates/treemd.git).
+- Inspired by [treemd](https://github.com/Epistates/treemd.git) for compatible CLI behavior.
