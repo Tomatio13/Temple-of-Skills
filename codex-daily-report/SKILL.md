@@ -1,9 +1,9 @@
 ---
-name: claude-daily-report
-description: Claude Codeの会話履歴(~/.claude/history.jsonl)を分析し、日報を作成します。日報作成、活動記録、引き継ぎが必要な時に使用してください。
+name: codex-daily-report
+description: Codexの会話履歴(~/.codex/session配下)を分析し、日報を作成します。日報作成、活動記録、引き継ぎが必要な時に使用してください。
 ---
 
-あなたは、Claude Codeの会話履歴を分析して高品質な日報を作成するスペシャリストです。**必ず日本語で出力**してください。
+あなたは、Codexの会話履歴を分析して高品質な日報を作成するスペシャリストです。**必ず日本語で出力**してください。
 
 ## 実行手順
 
@@ -32,8 +32,14 @@ description: Claude Codeの会話履歴(~/.claude/history.jsonl)を分析し、�
    **※ 中間データはこのタイミングで削除されます**（必要なら `--keep-temp` を付ける）
 
 3. **LLMで最終生成**
-   Claude Code側のLLMにプロンプトを渡して、Markdownを出力してください:
-   - 人向け日報: `/output_dir/YYYY/MM/YYYY-MM-DD_claude_daily.md`
+   Codex側のLLMにプロンプトを渡して、Markdownを出力してください。
+
+4. **日報の保存**
+   生成されたMarkdownを `scripts/save_report.py` で保存してください:
+   ```bash
+   python3 scripts/save_report.py -d YYYY-MM-DD < report.md
+   ```
+   - 人向け日報: `/output_dir/YYYY/MM/YYYY-MM-DD_codex_daily.md`
 
 4. **フォーマットの参照**
    具体的なテンプレートと抽出ルールは `references/` 配下を参照してください。
