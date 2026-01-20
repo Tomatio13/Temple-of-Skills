@@ -7,7 +7,7 @@ import json
 import os
 from pathlib import Path
 
-DEFAULT_OUTPUT_DIR = Path("/home/masato/ai_daily")
+DEFAULT_OUTPUT_DIR = Path("~/ai_daily")
 
 
 def _config_path():
