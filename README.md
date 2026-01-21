@@ -23,11 +23,15 @@
 | スキル | 概要 | パス |
 | --- | --- | --- |
 | agent-memory | 記憶の保存・想起・整理の依頼に対応 | `agent-memory/` |
+| claude-daily-report | Claude Codeの会話履歴を分析し日報を作成 | `claude-daily-report/` |
+| codex-daily-report | Codexの会話履歴を分析し日報を作成 | `codex-daily-report/` |
 | code-simplifier | 機能を変えずにコードを簡素化・整備 | `code-simplifier/` |
 | document-review | README/ドキュメントの品質レビュー | `document-review/` |
 | git-commit-push-pr | コミット/プッシュ/PR作成の手順 | `git-commit-push-pr/` |
 | git-main-switch-clean | mainへ戻し、ブランチ整理を補助 | `git-main-switch-clean/` |
 | git-release-notes-generator | タグ差分からリリースノート生成 | `git-release-notes-generator/` |
+| markdown-reader | Markdownを段階的に読む（見出しツリー表示・セクション抽出） | `markdown-reader-skill/markdown-reader/` |
+| md-to-singlepage-pdf | Markdownを1枚の縦長PDFに変換し余白をトリム | `md-to-singlepage-pdf/md-to-singlepage-pdf/` |
 | plan | 実行計画の作成・保存・更新・削除 | `plan/` |
 
 ## ✅ 使い方（概要）
