@@ -23,6 +23,8 @@ Claude Code の会話履歴（`~/.claude/history.jsonl`）を解析し、日報�
 
 - Python 3.x
 - Claude Code の会話履歴が `~/.claude/history.jsonl` に存在すること
+- markdownlint-cli2（MarkdownのLintと自動修正用）
+  - インストール: `npm install -g markdownlint-cli2`
 
 ## 🚀 使い方
 
@@ -65,6 +67,24 @@ Claude Code内で`/daily-report`を選択してください。
   - `prepare_prompt.py` 実行時に削除（`--keep-temp` で保持可能）
 - **日報の最終 Markdown**: `/output_dir/YYYY/MM/YYYY-MM-DD_claude_daily.md`
   - 生成は LLM 側で実施
+
+## 🔍 Lintと修正
+
+生成された Markdown ファイルに対して `markdownlint-cli2` を実行し、エラーがなくなるまで修正してください。
+
+```bash
+# Lint実行
+markdownlint-cli2 /output_dir/YYYY/MM/YYYY-MM-DD_claude_daily.md
+
+# 自動修正
+markdownlint-cli2 --fix /output_dir/YYYY/MM/YYYY-MM-DD_claude_daily.md
+```
+
+または、自動修正スクリプトを使用することも可能です：
+
+```bash
+python3 scripts/lint_and_fix.py /output_dir/YYYY/MM/YYYY-MM-DD_claude_daily.md
+```
 
 ## 🧩 テンプレート
 

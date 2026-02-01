@@ -23,6 +23,8 @@ Codex の会話履歴（`~/.codex/session` 配下）を解析し、日報作成�
 
 - Python 3.x
 - Codex の会話履歴が `~/.codex/session` 配下に存在すること
+- markdownlint-cli2（MarkdownのLintと自動修正用）
+  - インストール: `npm install -g markdownlint-cli2`
 
 ## 🚀 使い方
 
@@ -66,6 +68,24 @@ Codex内で`/daily-report`を選択してください。
 - **日報の最終 Markdown**: `/output_dir/YYYY/MM/YYYY-MM-DD_codex_daily.md`
   - 生成は LLM 側で実施
   - 生成後に `scripts/save_report.py` で保存
+
+## 🔍 Lintと修正
+
+生成された Markdown ファイルに対して `markdownlint-cli2` を実行し、エラーがなくなるまで修正してください。
+
+```bash
+# Lint実行
+markdownlint-cli2 /output_dir/YYYY/MM/YYYY-MM-DD_claude_daily.md
+
+# 自動修正
+markdownlint-cli2 --fix /output_dir/YYYY/MM/YYYY-MM-DD_claude_daily.md
+```
+
+または、自動修正スクリプトを使用することも可能です：
+
+```bash
+python3 scripts/lint_and_fix.py /output_dir/YYYY/MM/YYYY-MM-DD_claude_daily.md
+```
 
 ## 🧩 テンプレート
 
