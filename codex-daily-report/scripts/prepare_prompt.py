@@ -49,11 +49,10 @@ def build_context(data):
     return ctx
 
 
-def render_prompt(template_path, context):
+def render_prompt(template_path, context, data_path):
     with open(template_path, "r") as f:
         template = f.read()
-    payload = json.dumps(context, ensure_ascii=False, indent=2)
-    return template.replace("{{CONTEXT_JSON}}", payload)
+    return template.replace("{{DATA_PATH}}", str(data_path))
 
 
 def main():
@@ -68,7 +67,7 @@ def main():
     context = build_context(data)
 
     base = Path(__file__).resolve().parent.parent / "references"
-    daily_prompt = render_prompt(base / "prompt_daily.md", context)
+    daily_prompt = render_prompt(base / "prompt_daily.md", context, data_path)
     print(daily_prompt)
 
     if not args.keep_temp:
