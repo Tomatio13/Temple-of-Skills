@@ -27,16 +27,21 @@
 | claude-daily-report | Claude Codeの会話履歴を分析し日報を作成 | `claude-daily-report/` |
 | codex-daily-report | Codexの会話履歴を分析し日報を作成 | `codex-daily-report/` |
 | code-simplifier | 機能を変えずにコードを簡素化・整備 | `code-simplifier/` |
+| discord-webhook-poster | Discord Webhookへテキストとマルチメディアファイルを一方向送信 | `discord-webhook-poster/` |
 | document-review | README/ドキュメントの品質レビュー | `document-review/` |
+| gemini-tts-skill | Gemini TTSで日本語テキストをMP3化し、長文を自動分割して安定生成 | `gemini-tts-skill/` |
 | git-commit-push-pr | コミット/プッシュ/PR作成の手順 | `git-commit-push-pr/` |
 | git-main-switch-clean | mainへ戻し、ブランチ整理を補助 | `git-main-switch-clean/` |
 | git-release-notes-generator | タグ差分からリリースノート生成 | `git-release-notes-generator/` |
 | kpi-creator | KPI/CSFを決めるためのStep1-2を実行 | `kpi-creator/` |
-| marp-style-applier | Marpスライドデッキにプレゼンテーションデザインスタイルを適用 | `marp-style-applier/marp-style-applier/` |
-| markdown-reader | Markdownを段階的に読む（見出しツリー表示・セクション抽出） | `markdown-reader-skill/markdown-reader/` |
-| md-to-singlepage-pdf | Markdownを1枚の縦長PDFに変換し余白をトリム | `md-to-singlepage-pdf/md-to-singlepage-pdf/` |
+| marp-layout-fix | Marpスライドのレイアウト崩れを検出・修正 | `marp-layout-fix/` |
+| marp-slide-creator | Marp形式の資料化（プロンプト作成・Markdown保存） | `marp-slide-creator/` |
+| marp-style-applier | Marpスライドデッキにプレゼンテーションデザインスタイルを適用 | `marp-style-applier/` |
+| md-to-singlepage-pdf | Markdownを1枚の縦長PDFに変換し余白をトリム | `md-to-singlepage-pdf/` |
+| note-check | 記事を緊張と弛緩の観点で添削し、炎上リスクを回避 | `note-check/` |
 | plan | 実行計画の作成・保存・更新・削除 | `plan/` |
 | skill-creator | 新しいスキルの作成・更新ガイド | `skill-creator/` |
+| sns-check | SNS投稿を「緊張と弛緩」の観点で添削し、炎上リスクを回避 | `sns-check/` |
 | svg-illustration | SVG図のルール、レイアウトパターン、埋め込みガイダンス | `svg-illustration/` |
 | voice-skill | 音声入力を即時実行 | `voice-skill/` |
 
