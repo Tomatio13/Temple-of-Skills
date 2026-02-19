@@ -1,0 +1,7 @@
+.env
+*.mp3
+*.wav
+*.json
+*.artifacts/
+outputs/
+node_modules/

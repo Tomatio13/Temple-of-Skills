@@ -1,0 +1,30 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python /ABSOLUTE/PATH/TO/discord-webhook-poster/scripts/discord_webhook_post.py --stdin-json --content 'Claude stopped'",
+            "timeout": 15,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python /ABSOLUTE/PATH/TO/discord-webhook-poster/scripts/discord_webhook_post.py --stdin-json --content 'Claude notification'",
+            "timeout": 15,
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
+}
