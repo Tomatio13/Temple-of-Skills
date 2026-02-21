@@ -1,0 +1,4 @@
+interface:
+  display_name: "PPTX Basic Generator"
+  short_description: "Generate PowerPoint decks from basic_generator.py templates."
+  default_prompt: "Create or update slides using the basic_generator.py workflow and generate a .pptx output."
