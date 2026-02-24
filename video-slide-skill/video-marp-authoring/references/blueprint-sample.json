@@ -1,0 +1,30 @@
+{
+  "frontmatter_overrides": {
+    "title": "Sample Video Deck",
+    "author": "Team"
+  },
+  "slides": [
+    {
+      "layout": "cover",
+      "video": "videos/slide1.mp4",
+      "fields": {
+        "LOGO": "FLINE",
+        "SLIDE_TITLE": "AI-Powered Data Analysis",
+        "SLIDE_SUBTITLE": "Unlocking Business Potential",
+        "SLIDE_META": "By Team",
+        "PAGE_NUM": "001"
+      }
+    },
+    {
+      "layout": "intro",
+      "video": "videos/slide2.mp4",
+      "fields": {
+        "LOGO": "FUJITSU",
+        "SLIDE_TITLE": "The Rise of AI in Data Analytics",
+        "SLIDE_TEXT_SHORT": "Market growth and transformation overview.",
+        "SLIDE_TEXT": "Businesses are adopting AI-powered analytics to improve decision quality and operational speed.",
+        "SLIDE_STAT": "25-40%"
+      }
+    }
+  ]
+}
