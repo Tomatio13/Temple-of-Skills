@@ -42,6 +42,7 @@
 | md-to-singlepage-pdf | Markdownを1枚の縦長PDFに変換し余白をトリム | `md-to-singlepage-pdf/` |
 | pptx-basic-generator | basic_generator.pyを使ったPowerPoint生成・更新（12種類のテンプレート対応） | `pptx-basic-generator/` |
 | svg-illustration | SVG図のルール、レイアウトパターン、埋め込みガイダンス | `svg-illustration/` |
+| video-slide-skill | Marp動画スライドの作成フロー（動画対応化・ポータブル配布化） | `video-slide-skill/` |
 
 ### ✍️ 文章・レビュー
 | スキル | 概要 | パス |
