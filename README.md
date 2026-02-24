@@ -40,6 +40,7 @@
 | marp-slide-creator | Marp形式の資料化（プロンプト作成・Markdown保存） | `marp-slide-creator/` |
 | marp-style-applier | Marpスライドデッキにプレゼンテーションデザインスタイルを適用 | `marp-style-applier/` |
 | md-to-singlepage-pdf | Markdownを1枚の縦長PDFに変換し余白をトリム | `md-to-singlepage-pdf/` |
+| markdown-reader-skill | Markdownの見出し構造把握や部分抽出を効率化 | `markdown-reader-skill/` |
 | pptx-basic-generator | basic_generator.pyを使ったPowerPoint生成・更新（12種類のテンプレート対応） | `pptx-basic-generator/` |
 | svg-illustration | SVG図のルール、レイアウトパターン、埋め込みガイダンス | `svg-illustration/` |
 | video-slide-skill | Marp動画スライドの作成フロー（動画対応化・ポータブル配布化） | `video-slide-skill/` |
@@ -57,6 +58,7 @@
 | --- | --- | --- |
 | agent-memory | 記憶の保存・想起・整理の依頼に対応 | `agent-memory/` |
 | plan | 実行計画の作成・保存・更新・削除 | `plan/` |
+| qa-memory-bank | 技術Q&Aやナレッジの蓄積・検索・更新を支援 | `qa-memory-bank/` |
 | skill-creator | 新しいスキルの作成・更新ガイド | `skill-creator/` |
 
 ### 🔗 連携・通知
