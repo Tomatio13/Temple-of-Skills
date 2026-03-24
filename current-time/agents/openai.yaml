@@ -1,0 +1,4 @@
+interface:
+  display_name: "Current Time"
+  short_description: "Format date, time, and weekday strings"
+  default_prompt: "Use $current-time to get the current time or format a date and time into a requested string."

@@ -57,8 +57,10 @@
 | スキル | 概要 | パス |
 | --- | --- | --- |
 | agent-memory | 記憶の保存・想起・整理の依頼に対応 | `agent-memory/` |
+| current-time | 現在時刻の取得・日時フォーマット（日本語曜日対応） | `current-time/` |
 | plan | 実行計画の作成・保存・更新・削除 | `plan/` |
 | qa-memory-bank | 技術Q&Aやナレッジの蓄積・検索・更新を支援 | `qa-memory-bank/` |
+| session-analyzer | Claude Code/Codexのセッションログを分析 | `session-analyzer/` |
 | skill-creator | 新しいスキルの作成・更新ガイド | `skill-creator/` |
 
 ### 🔗 連携・通知
@@ -67,6 +69,11 @@
 | claude-daily-report | Claude Codeの会話履歴を分析し日報を作成 | `claude-daily-report/` |
 | codex-daily-report | Codexの会話履歴を分析し日報を作成 | `codex-daily-report/` |
 | discord-webhook-poster | Discord Webhookへテキストとマルチメディアファイルを一方向送信 | `discord-webhook-poster/` |
+
+### 🌐 外部サービス・API
+| スキル | 概要 | パス |
+| --- | --- | --- |
+| openweather | OpenWeather APIで現在/天気・予報（3時間/5日）を取得 | `openweather/` |
 
 ### 🎵 メディア・音声
 | スキル | 概要 | パス |
