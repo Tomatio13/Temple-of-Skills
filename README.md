@@ -50,6 +50,7 @@
 | --- | --- | --- |
 | agent-skills-reviewer | Agent Skills の品質・実用性を評価し、SKILL.mdの改善点を指摘 | `agent-skills-reviewer/` |
 | document-review | README/ドキュメントの品質レビュー | `document-review/` |
+| humanizer-ja | AIくさい日本語を、人間が書いた文章に変換 | `humanizer-ja/` |
 | note-check | 記事を緊張と弛緩の観点で添削し、炎上リスクを回避 | `note-check/` |
 | sns-check | SNS投稿を「緊張と弛緩」の観点で添削し、炎上リスクを回避 | `sns-check/` |
 
