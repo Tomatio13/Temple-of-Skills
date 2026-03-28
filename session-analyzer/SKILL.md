@@ -24,7 +24,7 @@ Use `scripts/analyze_agent_sessions.py` by default.
 ## Commands
 
 ```bash
-cd /home/masato/.codex/skills/session-analyzer/scripts
+cd $HOME/.codex/skills/session-analyzer/scripts
 python analyze_agent_sessions.py
 python analyze_agent_sessions.py 2026-03-20
 python analyze_agent_sessions.py /path/to/session.jsonl
@@ -62,9 +62,9 @@ python analyze_agent_sessions.py --source codex 2026-03-20
 ## Validation
 
 ```bash
-cd /home/masato/.codex/skills/session-analyzer/scripts
+cd $HOME/.codex/skills/session-analyzer/scripts
 python -m compileall analyze_agent_sessions.py analyze_session.py analyze_codex_sessions.py claude_session_adapter.py codex_session_adapter.py session_analysis_core.py
 python analyze_agent_sessions.py
 python analyze_agent_sessions.py 2026-03-20
-python /home/masato/.codex/skills/.system/skill-creator/scripts/quick_validate.py /home/masato/.codex/skills/session-analyzer
+python $HOME/.codex/skills/.system/skill-creator/scripts/quick_validate.py $HOME/.codex/skills/session-analyzer
 ```
