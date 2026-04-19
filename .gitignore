@@ -1,4 +1,6 @@
 .git/
 .claude/
+.codex
+**/.codex
 
 __pycache__/
