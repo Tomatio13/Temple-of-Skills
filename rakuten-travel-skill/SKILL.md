@@ -1,5 +1,5 @@
 ---
-name: rakuten-travel-vacancy-skill
+name: rakuten-travel-skill
 description: |
   楽天トラベル前提で、場所・日付・人数を含む宿泊条件から空室や宿泊プランを検索したいときに使う。
   旅行条件を自然文または構造化入力で受け取り、地区コードを解決して VacantHotelSearch を呼び出し、候補ホテルを日本語で返す。
