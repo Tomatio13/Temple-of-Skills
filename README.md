@@ -2,10 +2,10 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/agent-skill-orange" alt="agent skill"/>
-  <img src="https://img.shields.io/badge/skills-34-lightgrey" alt="34 skills"/>
+  <img src="https://img.shields.io/badge/skills-35-lightgrey" alt="35 skills"/>
 </p>
 
-個人的に利用・管理している Agent Skills を集約したリポジトリです。  
+個人的に利用・管理している Agent Skills を集約したリポジトリです。\
 各スキルはディレクトリ単位で管理され、`SKILL.md` を入口に `README.md`、`references/`、`scripts/`、`assets/` などを必要最小限だけ参照する構成を採用しています。
 
 ## 🎯 目的
@@ -25,13 +25,13 @@
 ## 🚀 使い方
 
 1. 依頼内容に合うスキルディレクトリを選ぶ
-2. 対象スキルの `SKILL.md` を最初に読む
-3. `SKILL.md` から参照される補助資料やスクリプトだけを追加で読む
-4. 指示に従って作業し、必要なら README や scripts で補完する
+1. 対象スキルの `SKILL.md` を最初に読む
+1. `SKILL.md` から参照される補助資料やスクリプトだけを追加で読む
+1. 指示に従って作業し、必要なら README や scripts で補完する
 
 ## 📚 スキル一覧
 
-現在、トップレベルで `SKILL.md` を持つスキルは 34 個あります。
+現在、トップレベルで `SKILL.md` を持つスキルは 35 個あります。
 
 ### 💻 開発・コード
 
@@ -87,6 +87,7 @@
 - `openweather/`: OpenWeather API で現在天気や予報を取得する
 - `rakuten-travel-skill/`: 楽天トラベルを前提に空室や宿泊プランを検索する
 - `x-research/`: SocialData API を使って X の投稿や記事を調査し、レポート化する
+- `x-search-cli/`: xAI Responses API 経由で X 検索し、Grok による要約を返す CLI ツール
 
 ### 🎵 音声・メディア
 
