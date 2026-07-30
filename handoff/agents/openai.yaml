@@ -1,0 +1,4 @@
+interface:
+  display_name: "Session Handoff"
+  short_description: "Move a long conversation to a fresh Codex task safely"
+  default_prompt: "Use $handoff to move this conversation into a new Codex task while preserving its intent and history."

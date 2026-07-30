@@ -2,10 +2,10 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/agent-skill-orange" alt="agent skill"/>
-  <img src="https://img.shields.io/badge/skills-35-lightgrey" alt="35 skills"/>
+  <img src="https://img.shields.io/badge/skills-40-lightgrey" alt="40 skills"/>
 </p>
 
-個人的に利用・管理している Agent Skills を集約したリポジトリです。\
+個人的に利用・管理している Agent Skills を集約したリポジトリです。  
 各スキルはディレクトリ単位で管理され、`SKILL.md` を入口に `README.md`、`references/`、`scripts/`、`assets/` などを必要最小限だけ参照する構成を採用しています。
 
 ## 🎯 目的
@@ -25,16 +25,17 @@
 ## 🚀 使い方
 
 1. 依頼内容に合うスキルディレクトリを選ぶ
-1. 対象スキルの `SKILL.md` を最初に読む
-1. `SKILL.md` から参照される補助資料やスクリプトだけを追加で読む
-1. 指示に従って作業し、必要なら README や scripts で補完する
+2. 対象スキルの `SKILL.md` を最初に読む
+3. `SKILL.md` から参照される補助資料やスクリプトだけを追加で読む
+4. 指示に従って作業し、必要なら README や scripts で補完する
 
 ## 📚 スキル一覧
 
-現在、トップレベルで `SKILL.md` を持つスキルは 35 個あります。
+現在、トップレベルで `SKILL.md` を持つスキルは 40 個あります。
 
 ### 💻 開発・コード
 
+- `apple-design/`: Apple 流の Web UI デザイン、物理モーション、スプリングアニメーション設計指針を提供する
 - `code-simplifier/`: 機能を保ったままコードを簡素化し、可読性と保守性を上げる
 - `commit/`: 実装後のセルフレビュー、コミット分割、Conventional Commit 作成を支援する
 - `plan-code/`: 実装前にコード変更計画を作り、スコープとリスクを整理する
@@ -45,6 +46,7 @@
 
 ### 🔄 Git・リリース
 
+- `gh-stars-activity/`: GitHub CLI を使いスター付きリポジトリの指定日以降の更新・リリースを日本語で確認する
 - `git-commit-push-pr/`: コミット、プッシュ、PR 作成フローを扱う
 - `git-main-switch-clean/`: `main` へ戻し、ローカルブランチ整理を補助する
 - `git-release-notes-generator/`: タグ差分からリリースノートを生成する
@@ -52,6 +54,7 @@
 ### 📄 資料・ドキュメント作成
 
 - `document-review/`: README や各種ドキュメントの品質レビューを行う
+- `html-output/`: 会話内容や構造化データを視覚的に見やすいローカル HTML ページとして出力する
 - `marp-layout-fix/`: Marp スライドの見切れやレイアウト崩れを検出・修正する
 - `marp-slide-creator/`: Marp 形式の資料作成を支援する
 - `marp-style-applier/`: Marp スライドへデザインスタイルを適用する
@@ -72,6 +75,7 @@
 
 - `agent-memory/`: 記憶の保存、検索、整理を行う
 - `current-time/`: 現在時刻取得や日時フォーマットを行う
+- `handoff/`: 長期化したセッションから文脈や未解決タスクを引き継いだ新セッションへの移行を作成する
 - `plan/`: 実行計画の作成、更新、保存、削除を扱う
 - `qa-memory-bank/`: 技術 Q&A や知識を蓄積・検索・更新する
 - `session-analyzer/`: Claude Code や Codex のセッションログを分析する
@@ -84,10 +88,11 @@
 
 ### 🌐 外部サービス・リサーチ
 
+- `google/`: `gogcli` を使って Gmail、Calendar、Drive、Docs、Sheets、Slides を操作・連携する
 - `openweather/`: OpenWeather API で現在天気や予報を取得する
 - `rakuten-travel-skill/`: 楽天トラベルを前提に空室や宿泊プランを検索する
 - `x-research/`: SocialData API を使って X の投稿や記事を調査し、レポート化する
-- `x-search-cli/`: xAI Responses API 経由で X 検索し、Grok による要約を返す CLI ツール
+- `x-search-skill/`: ローカルの `x-search` CLI を使い X の投稿検索や Grok による要約・根拠 URL を取得する
 
 ### 🎵 音声・メディア
 
