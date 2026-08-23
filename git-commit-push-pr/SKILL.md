@@ -1,20 +1,116 @@
 ---
 name: git-commit-push-pr
-description: Gitリポジトリへの変更をコミットし、リモートリポジトリにプッシュしプルリクをオープンする
+description: Gitリポジトリの変更を論理的な単位でコミットし、ブランチをプッシュして、実内容を含むPull Requestを作成・検証するときに使用する。
 ---
 
-## Context
+# Commit, Push, and Pull Request
 
-- Current git status: !`git status`
-- Current git diff (staged and unstaged changes): !`git diff HEAD`
-- Current branch: !`git branch --show-current`
+変更をレビュー可能なコミットへ分割し、差分と検証結果を正確に説明するPull Request（PR）として公開する。
 
-## Your task
+## 必須条件
 
-Based on the above changes:
+- 既存の未コミット変更はユーザーの作業として扱い、無関係な変更を編集・破棄・コミットしない。
+- `main`または`master`へ直接コミットしない。既定ブランチ上なら、変更内容を表す新しいブランチを作る。
+- コミット数を先に決めない。変更理由が独立している場合は分割し、同じ振る舞いの実装・テスト・必要な文書は同じコミットに含める。
+- `git add -A`で一括ステージしない。対象パスまたはhunkを明示してステージする。
+- コミットメッセージ、PRタイトル、PR本文は、ユーザーが別言語を指定しない限り、簡潔で専門的な英語で書く。
+- PR作成は、本文をGitHubから再取得して内容を確認するまで完了ではない。
 
-1. Create a new branch if on main
-2. Create a single commit with an appropriate message
-3. Push the branch to origin
-4. Create a pull request using `gh pr create`
-5. You have the capability to call multiple tools in a single response. You MUST do all of the above in a single message. Do not use any other tools or do anything else. Do not send any other text or messages besides these tool calls.
+## ワークフロー
+
+### 1. 現状を確認する
+
+次を確認し、今回の依頼に含まれる変更だけを特定する。
+
+- `git status --short --branch`
+- staged、unstaged、untrackedの各変更
+- 現在のブランチ、既定ブランチ、remote、upstream
+- 既定ブランチとの差分とコミット履歴
+- 同じhead branchの既存PRの有無
+
+差分がない、remoteがない、GitHub CLI（`gh`）が未認証、変更の所有範囲を安全に判断できない場合は、変更を加えず具体的な阻害要因を報告する。既定ブランチ上に変更がある場合は、コミット前にその変更を保持したまま新しいブランチへ切り替える。
+
+### 2. コミット計画を作る
+
+各変更を「一つの理由で説明でき、単独でレビュー・revertできる」単位へまとめる。
+
+- 独立した機能、修正、リファクタリング、文書更新は原則として別コミットにする。
+- ある振る舞いを成立させる実装とテストは同じコミットにする。
+- APIや挙動の変更に不可欠な文書更新は実装と同じコミットに含めてよい。
+- 無関係な整形、生成物、依存関係更新は混ぜない。
+- 一つのファイルに複数の目的が混在する場合は、可能ならhunk単位で分ける。
+- コミットの要約に無関係な二つの目的を「and」で結ぶ必要がある場合は分割する。ファイル単位だけを理由に分割しない。
+- 各コミットは、可能な範囲で関連チェックを単独で通過できる状態にする。
+
+各候補コミットについて、対象ファイル、目的、検証方法を確認してからステージする。
+
+### 3. 検証してコミットする
+
+コミットごとに以下を行う。
+
+1. 対象パスまたはhunkだけをステージする。
+2. `git diff --cached --stat`と`git diff --cached`で内容を再確認する。
+3. 関連する高速なテスト、formatter、lint、`git diff --check`を実行する。
+4. secret scannerが利用可能なら、ステージ済み差分を検査する。
+5. Conventional Commits形式（例: `fix: preserve pull request body`）でコミットする。
+6. コミット後にstatusを確認し、意図しない変更が入っていないことを確かめる。
+
+検証失敗を無視してコミットしない。根本原因を修正して再検証するか、修正が依頼範囲外なら停止して報告する。
+
+### 4. ブランチをプッシュする
+
+- 既定ブランチとの差分とコミット列を再確認する。
+- upstreamがなければ、対象ブランチだけを`origin`へupstream付きでプッシュする。
+- force pushはユーザーが明示的に依頼した場合だけ行う。
+
+### 5. PR本文を作成する
+
+PRタイトルと本文は、既定ブランチとの差分、実行した検証、残る制約を根拠に作る。空の本文や汎用的な定型文だけの本文は禁止する。
+
+本文には最低限、次を含める。
+
+```markdown
+## Summary
+
+- <利用者または保守者にとっての変更点>
+- <変更理由>
+
+## Changes
+
+- <主要な実装・文書・テストの変更>
+
+## Verification
+
+- `<実際に実行したコマンド>` — passed
+
+## Notes
+
+- <既知の制約、未検証事項、または "None">
+```
+
+- 実行していないテストを記載しない。
+- 「各ファイルを変更した」だけでなく、振る舞いと理由を説明する。
+- 既存PRが同じhead branchにある場合は、重複作成せず、そのPRのタイトル・本文が現在の差分と一致するよう更新する。
+- 新規PRは、shell展開や改行消失を避けるため本文ファイルを使って`gh pr create --body-file`で作成する。
+
+### 6. PRを再読して修復する
+
+作成または更新後、`gh pr view`のJSON出力からURL、title、body、head、baseを再取得し、次を検証する。
+
+- bodyが空でない。
+- `Summary`、`Changes`、`Verification`、`Notes`が存在する。
+- 本文が現在の全コミットと差分を説明している。
+- 検証結果と未検証事項が事実どおりである。
+- headとbaseが意図したブランチである。
+
+本文が空、欠落、古い場合は、本文ファイルを使って`gh pr edit`で一度修復し、再取得して確認する。修復後も一致しない場合は成功扱いにせず、PRのURLと不一致内容を報告する。
+
+## 完了報告
+
+最後に、以下を簡潔に報告する。
+
+- ブランチ名とPRのURL
+- 作成した各コミットのhashと件名
+- 実行した検証と結果
+- PR本文の再取得検証結果
+- 残っている未コミット変更、未検証事項、阻害要因
