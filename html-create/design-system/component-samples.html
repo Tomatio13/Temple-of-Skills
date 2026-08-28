@@ -188,7 +188,7 @@ h1 と h2 には左端の黒い縦棒が付きます。CSS が自動で付ける
 <code>language-html</code> のように言語を明示します。
 </p>
 
-<pre><code class="language-html">&lt;link rel="stylesheet" href="./design-system/document.css"&gt;</code></pre>
+<pre><code class="language-html">&lt;style&gt;/* design-system/document.css の内容をそのまま貼る */&lt;/style&gt;</code></pre>
 
 <p>
 コード差分は生の差分を貼らず、変更を論理順の散文で説明しながらコード断片を埋め込みます。
@@ -211,15 +211,30 @@ h1 と h2 には左端の黒い縦棒が付きます。CSS が自動で付ける
 <h2 id="reuse">再利用方法</h2>
 
 <p>
-成果物と同じ場所へ <code>design-system</code> ディレクトリを配置し、
-head から CSS、数式コピー用 JavaScript、MathJax、Highlight.js の順に読み込みます。
+成果物では <code>document.css</code> と <code>math-copy.js</code> の内容を head 内の
+<code>&lt;style&gt;</code> と <code>&lt;script&gt;</code> にそのまま埋め込みます。
+こうすると成果物は単一の HTML ファイルとして完結し、単体で移動できます。
+head の並びは、フォント、埋め込み CSS、埋め込み JavaScript、MathJax、Highlight.js の順とします。
 </p>
 
-<pre><code class="language-html">&lt;link rel="stylesheet" href="./design-system/document.css"&gt;
-&lt;script src="./design-system/math-copy.js"&gt;&lt;/script&gt;
+<pre><code class="language-html">&lt;link href="https://fonts.googleapis.com/css2?family=..." rel="stylesheet"&gt;
+&lt;style&gt;
+/* design-system/document.css の内容をそのまま貼る */
+&lt;/style&gt;
+&lt;script&gt;
+/* design-system/math-copy.js の内容をそのまま貼る */
+&lt;/script&gt;
 &lt;script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;hljs.highlightAll();&lt;/script&gt;</code></pre>
+
+<p>
+埋め込み JavaScript は MathJax より前に置きます。
+<code>window.MathJax</code> の設定は MathJax の読み込み前に定義されている必要があるためです。
+なお、この見本自身は <code>document.css</code> と同じ場所にあるため
+<code>&lt;link&gt;</code> で読み込んでいます。スタイルの正は常に
+<code>design-system/</code> 内のファイルです。
+</p>
 
 </div><!-- /.mb-main -->
 

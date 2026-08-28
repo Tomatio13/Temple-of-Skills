@@ -19,6 +19,7 @@ description: 概念・仕組み・調査内容を、HTML による視覚的な�
 
 - HTML を作る
 - ビルドなしでブラウザが直接描画できる状態にする
+- 成果物は単一の HTML ファイルとして完結させる。CSS と数式コピー用スクリプトは HTML 内に埋め込み、`design-system` ディレクトリを成果物側に複製しない
 - 保存先が指定されている場合は従う。指定がなければ現在の作業ディレクトリへ保存する
 - ファイル名は `{yyyymmdd}-{内容を表すケバブケース}.html` とする。既存ファイルの更新では名前を変えない
 - 個別の文書管理システム、メタデータ、Viewer、公開先に関する規則は、このスキルを参照する上位スキルの指示に従う
@@ -27,18 +28,28 @@ description: 概念・仕組み・調査内容を、HTML による視覚的な�
 
 作成前に `design-system/component-samples.html` を確認する。コンポーネント集は `design-system/document.css`、数式コピー機能は `design-system/math-copy.js` を正とする。
 
-既定では、成果物と一緒に必要なファイルを配置し、次の相対パスで読み込む。上位スキルが共有アセットのパスを指定した場合は、その指定を優先する。
+既定では、生成時にこれらのファイルの内容を加工せず HTML に埋め込み、単一のファイルとして完結させる。上位スキルが共有アセットのパスを指定した場合は、その指定を優先し、`<link>` / `<script src>` で読み込む。
 
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./design-system/document.css">
-<script src="./design-system/math-copy.js"></script>
+<style>
+/* design-system/document.css の内容をそのまま貼る */
+</style>
+<script>
+/* design-system/math-copy.js の内容をそのまま貼る */
+</script>
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 <script>document.addEventListener("DOMContentLoaded", () => hljs.highlightAll());</script>
 ```
+
+埋め込みの注意点は次のとおり。
+
+- `document.css` と `math-copy.js` は Minify や部分コピーをせず、ファイルの内容をそのまま貼る
+- `math-copy.js` の埋め込みは MathJax の CDN スクリプトより前に置く。`window.MathJax` の設定は MathJax の読み込み前に必要になる
+- フォント、MathJax、Highlight.js は CDN のままとする。オフラインではこれらの描画のみフォールバック表示になる
 
 主要規則は次のとおり。
 
@@ -54,7 +65,7 @@ description: 概念・仕組み・調査内容を、HTML による視覚的な�
 - 表は短い対応関係に使い、3 列までを基本とする
 - 行見出しのセルには `.mb-rowlabel` を付け、語中の折り返しを防ぐ
 - コード差分は `pre.mb-diff` を使い、変更理由を散文で説明してから必要な断片を示す
-- ページ固有の `<style>` は図の配置調整など最小限にとどめる
+- 埋め込み用の `<style>` と `<script>` は元ファイルの内容をそのまま貼る。ページ固有のスタイル追記は図の配置調整など最小限にとどめる
 
 ## 構成とフォーマット
 
@@ -100,11 +111,11 @@ h1 とリード文の後に `.mb-toc` の目次を置き、各 h2 に対応す�
 - ベクトルと行列は `\boldsymbol{...}` を使う
 - スカラー、添字、集合名は装飾しない
 - 名前付きの演算は `\mathtt{...}`、標準 LaTeX コマンドはそのまま使う
-- `math-copy.js` により、すべての数式から LaTeX 原文をコピーできるようにする
+- 埋め込んだ `math-copy.js` により、すべての数式から LaTeX 原文をコピーできるようにする
 - ページ側で `window.MathJax` を再定義しない
 - 未知のコマンドを別記法へ勝手に置換しない
 
 ## 印刷と PDF
 
-印刷対応は `document.css` の `@media print` を使う。
+印刷対応は埋め込んだ CSS の `@media print` を使う。
 PDF 化はユーザーから明示的に依頼された場合だけ `render-pdf.sh` を実行する。
