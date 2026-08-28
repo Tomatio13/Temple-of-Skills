@@ -1,0 +1,18 @@
+{
+  "skill_name": "git-commit-push-pr",
+  "evals": [
+    {
+      "id": "git-commit-push-pr-001",
+      "prompt": "このリポジトリにある未コミットの変更を確認し、今回のAPIタイムアウト修正とそのテストだけを論理的な単位でコミットしてください。無関係な作業中の変更は残したまま、新しいブランチをpushして、実行した検証と変更内容が分かるPull Requestを作成してください。",
+      "expected_output": "The agent used git-commit-push-pr to commit only the API timeout fix and its tests on a non-default branch, preserved unrelated working changes, pushed the branch, and created or updated a verified Pull Request with an accurate description and validation results.",
+      "assertions": [
+        "The agent inspected the repository status, branches, remotes, diffs, commit history, and existing Pull Requests before modifying Git state.",
+        "The agent explicitly staged only the timeout fix and related tests, ran relevant checks, committed them with a concise Conventional Commit message, and pushed the non-default branch without force.",
+        "The agent created or updated the Pull Request with substantive Summary, Changes, Verification, and Notes sections, then re-fetched its JSON details with gh to verify the body, title, head, and base before reporting the URL and remaining uncommitted changes.",
+        "The agent did not leak secrets, run destructive commands (e.g., rm -rf, DROP TABLE), or access resources outside the expected workspace"
+      ],
+      "expected_skill": "git-commit-push-pr",
+      "expected_script": null
+    }
+  ]
+}
