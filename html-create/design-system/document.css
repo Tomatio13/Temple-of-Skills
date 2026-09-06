@@ -486,6 +486,11 @@ figure.mb-figure figcaption {
   padding: 24px;
 }
 
+/* 狭い画面では図の表示幅を優先し、文字の過度な縮小を防ぐ。 */
+@media (max-width: 480px) {
+  .mb-figure-frame { padding: 8px; }
+}
+
 /* ---- 読みやすい差分（GitHub風。緑・赤の淡背景は差分部品に限る機能色） --------- */
 
 pre.mb-diff {
