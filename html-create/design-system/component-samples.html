@@ -161,27 +161,116 @@ h1 と h2 には左端の黒い縦棒が付きます。CSS が自動で付ける
 矢印でつながった箱は、ここで示す図の一例にすぎません。
 </p>
 
+<h3>構成図の作例</h3>
 <figure class="mb-figure">
   <div class="mb-figure-frame">
-    <svg viewBox="0 0 560 120" width="560">
-      <g fill="none" stroke="#111110" stroke-width="2">
-        <rect x="10" y="35" width="130" height="50" rx="10"/>
-        <rect x="215" y="35" width="130" height="50" rx="10"/>
-        <rect x="420" y="35" width="130" height="50" rx="10"/>
-        <line x1="140" y1="60" x2="215" y2="60"/>
-        <line x1="345" y1="60" x2="420" y2="60"/>
-        <path d="M207 55 L215 60 L207 65 Z" fill="#111110" stroke="none"/>
-        <path d="M412 55 L420 60 L412 65 Z" fill="#111110" stroke="none"/>
-      </g>
-      <g font-family="Ubuntu Sans, Noto Sans JP, sans-serif" font-size="15" fill="#111110" text-anchor="middle">
-        <text x="75" y="65">原稿</text>
-        <text x="280" y="65">共有CSS</text>
-        <text x="485" y="65">HTML文書</text>
-      </g>
-    </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 324" width="320" role="img" aria-labelledby="example-architecture-title example-architecture-desc" style="font-family:var(--mb-font-sans, sans-serif);color:var(--mb-ink, #111110)">
+  <title id="example-architecture-title">構成図の最小例</title>
+  <desc id="example-architecture-desc">利用者が受付に要求し、受付が保存先を読み書きする。</desc>
+  <defs>
+    <marker id="example-architecture-arrow" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="var(--mb-ink, #111110)"/>
+    </marker>
+  </defs>
+  <g fill="var(--mb-ink, #111110)">
+    <line x1="90" y1="64" x2="90" y2="132" stroke="var(--mb-ink, #111110)" stroke-width="1.5" marker-end="url(#example-architecture-arrow)"/>
+    <text x="110" y="104" text-anchor="start" font-size="18">
+      <tspan x="110" y="104">要求</tspan>
+    </text>
+    <line x1="90" y1="172" x2="90" y2="240" stroke="var(--mb-ink, #111110)" stroke-width="1.5" marker-end="url(#example-architecture-arrow)"/>
+    <text x="110" y="212" text-anchor="start" font-size="18">
+      <tspan x="110" y="212">読み書き</tspan>
+    </text>
+    <rect x="24" y="24" width="132" height="40" rx="4" fill="var(--mb-surface, #FFFFFF)" stroke="var(--mb-ink, #111110)" stroke-width="1.5"/>
+    <text x="90.0" y="50.0" text-anchor="middle" font-size="18">
+      <tspan x="90.0" y="50.0">利用者</tspan>
+    </text>
+    <rect x="24" y="132" width="132" height="40" rx="4" fill="var(--mb-surface, #FFFFFF)" stroke="var(--mb-ink, #111110)" stroke-width="1.5"/>
+    <text x="90.0" y="158.0" text-anchor="middle" font-size="18">
+      <tspan x="90.0" y="158.0">受付</tspan>
+    </text>
+    <rect x="24" y="240" width="132" height="40" rx="4" fill="var(--mb-surface, #FFFFFF)" stroke="var(--mb-ink, #111110)" stroke-width="1.5"/>
+    <text x="90.0" y="266.0" text-anchor="middle" font-size="18">
+      <tspan x="90.0" y="266.0">保存先</tspan>
+    </text>
+  </g>
+</svg>
   </div>
-  <figcaption>fig.1 デザインの一貫性を担保する流れ</figcaption>
+  <figcaption>図1：利用者が受付に要求し、受付が保存先を読み書きする。（自作・架空の例）</figcaption>
 </figure>
+<h3>分岐フロー図の作例</h3>
+<figure class="mb-figure">
+  <div class="mb-figure-frame">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 256" width="320" role="img" aria-labelledby="example-flowchart-title example-flowchart-desc" style="font-family:var(--mb-font-sans, sans-serif);color:var(--mb-ink, #111110)">
+  <title id="example-flowchart-title">分岐フロー図の最小例</title>
+  <desc id="example-flowchart-desc">入力が有効なら保存し、無効なら修正を依頼する。</desc>
+  <defs>
+    <marker id="example-flowchart-arrow" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="var(--mb-ink, #111110)"/>
+    </marker>
+  </defs>
+  <g fill="var(--mb-ink, #111110)">
+    <path d="M 112 102 V 186" fill="none" stroke="var(--mb-ink, #111110)" stroke-width="1.5" marker-end="url(#example-flowchart-arrow)"/>
+    <path d="M 194 70 H 232 Q 240 70 240 78 V 186" fill="none" stroke="var(--mb-ink, #111110)" stroke-width="1.5" marker-end="url(#example-flowchart-arrow)"/>
+    <text x="90" y="154" text-anchor="middle" font-size="18">
+      <tspan x="90" y="154">有効</tspan>
+    </text>
+    <text x="267" y="142" text-anchor="middle" font-size="18">
+      <tspan x="267" y="142">無効</tspan>
+    </text>
+    <polygon points="112,38 194,70 112,102 30,70" fill="var(--mb-surface, #FFFFFF)" stroke="var(--mb-ink, #111110)" stroke-width="1.5"/>
+    <text x="112" y="76" text-anchor="middle" font-size="18">
+      <tspan x="112" y="76">入力検査</tspan>
+    </text>
+    <rect x="64" y="186" width="96" height="44" rx="4" fill="var(--mb-surface, #FFFFFF)" stroke="var(--mb-ink, #111110)" stroke-width="1.5"/>
+    <text x="112.0" y="214.0" text-anchor="middle" font-size="18">
+      <tspan x="112.0" y="214.0">保存</tspan>
+    </text>
+    <rect x="192" y="186" width="96" height="44" rx="4" fill="var(--mb-surface, #FFFFFF)" stroke="var(--mb-ink, #111110)" stroke-width="1.5"/>
+    <text x="240.0" y="214.0" text-anchor="middle" font-size="18">
+      <tspan x="240.0" y="214.0">修正依頼</tspan>
+    </text>
+  </g>
+</svg>
+  </div>
+  <figcaption>図2：入力が有効なら保存し、無効なら修正を依頼する。（自作・架空の例）</figcaption>
+</figure>
+<h3>シーケンス図の作例</h3>
+<figure class="mb-figure">
+  <div class="mb-figure-frame">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 264" width="320" role="img" aria-labelledby="example-sequence-title example-sequence-desc" style="font-family:var(--mb-font-sans, sans-serif);color:var(--mb-ink, #111110)">
+  <title id="example-sequence-title">シーケンス図の最小例</title>
+  <desc id="example-sequence-desc">利用者が受付に要求を送り、受付が結果を返す。</desc>
+  <defs>
+    <marker id="example-sequence-arrow" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="var(--mb-ink, #111110)"/>
+    </marker>
+  </defs>
+  <g fill="var(--mb-ink, #111110)">
+    <line x1="68" y1="64" x2="68" y2="242" stroke="var(--mb-ink, #111110)" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <line x1="252" y1="64" x2="252" y2="242" stroke="var(--mb-ink, #111110)" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <line x1="68" y1="112" x2="252" y2="112" stroke="var(--mb-ink, #111110)" stroke-width="1.5" marker-end="url(#example-sequence-arrow)"/>
+    <text x="160" y="98" text-anchor="middle" font-size="18">
+      <tspan x="160" y="98">要求</tspan>
+    </text>
+    <line x1="252" y1="192" x2="68" y2="192" stroke="var(--mb-ink, #111110)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#example-sequence-arrow)"/>
+    <text x="160" y="178" text-anchor="middle" font-size="18">
+      <tspan x="160" y="178">結果</tspan>
+    </text>
+    <rect x="20" y="20" width="96" height="44" rx="4" fill="var(--mb-surface, #FFFFFF)" stroke="var(--mb-ink, #111110)" stroke-width="1.5"/>
+    <text x="68.0" y="48.0" text-anchor="middle" font-size="18">
+      <tspan x="68.0" y="48.0">利用者</tspan>
+    </text>
+    <rect x="204" y="20" width="96" height="44" rx="4" fill="var(--mb-surface, #FFFFFF)" stroke="var(--mb-ink, #111110)" stroke-width="1.5"/>
+    <text x="252.0" y="48.0" text-anchor="middle" font-size="18">
+      <tspan x="252.0" y="48.0">受付</tspan>
+    </text>
+  </g>
+</svg>
+  </div>
+  <figcaption>図3：利用者が受付に要求を送り、受付が結果を返す。（自作・架空の例）</figcaption>
+</figure>
+
 
 <p>
 コードブロックは白カードの中に等幅で置き、Highlight.js で言語に応じたシンタックスハイライトを適用します。
